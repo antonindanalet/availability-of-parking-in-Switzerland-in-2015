@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from utils_mtmc.get_mtmc_files import *
 from utils_mtmc.get_weighted_average_and_std import *
 
@@ -22,7 +25,7 @@ def compute_availability_of_parking_space_by_agglo_size(df_hh, results_for_all_h
                              "Agglomerationen mit 50'000 bis 99'999 Einwohner/innen",
                          "Agglomerations with less than 50'000 inhabitants":
                              "Agglomerationen mit weniger als 50'000 Einwohner/innen"}
-    dict_labels_de2fr = {'Alle Haushalte': '',
+    dict_labels_de2fr = {'Alle Haushalte': 'Tous les ménages',
                          'Keine Agglomerationszugehoerigkeit': 'Communes hors agglomérations',
                          "Agglomerationen mit 500'000 Einwohner/innen und mehr":
                              "Agglomérations de 500'000 habitants et plus",
@@ -109,7 +112,7 @@ def compute_av_parking_for_one_size_variable(df_hh, results_for_all_hh, size_var
     differentiation_by_agglo_size.rename(index=dict_variable_labels, inplace=True)
     results_in_english = pd.concat([results_for_all_hh, differentiation_by_agglo_size])
     results_in_english.to_csv(Path('../data/output/tables/EN/home/' + file_name_en))
-    print(file_name_en, 'saved in data/output/EN')
+    print(file_name_en, 'saved in data/output/EN/home')
     # Save results in German
     results_in_german = results_in_english
     results_in_german.rename(index=dict_labels_en2de, inplace=True)
@@ -119,7 +122,7 @@ def compute_av_parking_for_one_size_variable(df_hh, results_for_all_hh, size_var
                                      'Anteil mit 2 Parkplaetzen', 'Standardabweichung mit 2 Parkplaetzen',
                                      'Anteil mit 3 Parkplaetzen und mehr',
                                      'Standardabweichung mit 3 Parkplaetzen und mehr'])
-    print(file_name_de, 'saved in data/output/DE')
+    print(file_name_de, 'saved in data/output/DE/zuHause')
     # Save results in French
     results_in_french = results_in_german
     results_in_french.rename(index=dict_labels_de2fr, inplace=True)
@@ -132,7 +135,7 @@ def compute_av_parking_for_one_size_variable(df_hh, results_for_all_hh, size_var
                                      'Ecart type avec 2 place de stationnement',
                                      'Proportion avec 3 place de stationnement ou plus',
                                      'Ecart type avec 3 place de stationnement ou plus'])
-    print(file_name_fr, 'saved in data/output/FR')
+    print(file_name_fr, 'saved in data/output/FR/domicile')
 
 
 def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
@@ -180,7 +183,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
     file_name_en = 'availability_of_parking_space_by_household_location.csv'
     results_in_english = pd.concat([results_for_all_hh, differentiation_by_hh_loc])
     results_in_english.to_csv(Path('../data/output/tables/EN/home/' + file_name_en))
-    print(file_name_en, 'saved in data/output/EN')
+    print(file_name_en, 'saved in data/output/EN/home')
     # Save results in German
     results_in_german = results_in_english
     results_in_german.rename(index={'All households': 'Alle Haushalte',
@@ -204,7 +207,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                       'Anteil mit 2 Parkplaetzen', 'Standardabweichung mit 2 Parkplaetzen',
                                       'Anteil mit 3 Parkplaetzen und mehr',
                                       'Standardabweichung mit 3 Parkplaetzen und mehr'])
-    print(file_name_de, 'saved in data/output/DE')
+    print(file_name_de, 'saved in data/output/DE/zuHause')
     # Save results in French
     results_in_french = results_in_german
     results_in_french.rename(index={'Alle Haushalte': 'Tous les ménages',
@@ -231,7 +234,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                      'Ecart type avec 2 place de stationnement',
                                      'Proportion avec 3 place de stationnement ou plus',
                                      'Ecart type avec 3 place de stationnement ou plus'])
-    print(file_name_fr, 'saved in data/output/FR')
+    print(file_name_fr, 'saved in data/output/FR/domicile')
 
     """ Results by aggregated categories (similarly as in the main report) """
     dict_aggregation = {0: 3,  # laendliche Gemeinde ohne staedtischen Charaketer
@@ -277,7 +280,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
     file_name = 'availability_of_parking_space_by_household_location_agg.csv'
     results_in_english = pd.concat([results_for_all_hh, differentiation_by_hh_loc])
     results_in_english.to_csv(Path('../data/output/tables/EN/home/' + file_name))
-    print(file_name, 'saved in data/output/EN')
+    print(file_name, 'saved in data/output/EN/home')
 
     # results in German
     results_in_german = results_in_english
@@ -294,7 +297,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                      'Anteil mit 2 Parkplaetzen', 'Standardabweichung mit 2 Parkplaetzen',
                                      'Anteil mit 3 Parkplaetzen und mehr',
                                      'Standardabweichung mit 3 Parkplaetzen und mehr'])
-    print(file_name_de, 'saved in data/output/DE')
+    print(file_name_de, 'saved in data/output/DE/zuHause')
 
     # Results in French
     results_in_french = results_in_german
@@ -314,12 +317,13 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                      'Ecart type avec 2 place de stationnement',
                                      'Proportion avec 3 place de stationnement ou plus',
                                      'Ecart type avec 3 place de stationnement ou plus'])
-    print(file_name_fr, 'saved in data/output/FR')
+    print(file_name_fr, 'saved in data/output/FR/domicile')
 
 
 def get_data_household():
     """ Get the data about households that are needed and remove observations that are not valid """
-    selected_columns = ['f31100',
+    selected_columns = ['HHNR',
+                        'f31100',
                         'WM',
                         'f30100',
                         'W_staedt_char_2012',
@@ -407,7 +411,7 @@ def compute_availability_of_parking_space_by_nb_of_cars(df_hh, results_for_all_h
     file_name = 'availability_of_parking_space_by_nb_of_cars.csv'
     results_in_english = pd.concat([results_for_all_hh, differentiation_by_nb_cars])
     results_in_english.to_csv(Path('../data/output/tables/EN/home/' + file_name))
-    print(file_name, 'saved in data/output/EN')
+    print(file_name, 'saved in data/output/EN/home')
 
     # Results in German
     results_in_german = results_in_english
@@ -424,7 +428,7 @@ def compute_availability_of_parking_space_by_nb_of_cars(df_hh, results_for_all_h
                                      'Anteil mit 2 Parkplaetzen', 'Standardabweichung mit 2 Parkplaetzen',
                                      'Anteil mit 3 Parkplaetzen und mehr',
                                      'Standardabweichung mit 3 Parkplaetzen und mehr'])
-    print(file_name_de, 'saved in data/output/DE')
+    print(file_name_de, 'saved in data/output/DE/zuHause')
 
     # Results in French
     results_in_french = results_in_german
@@ -444,4 +448,4 @@ def compute_availability_of_parking_space_by_nb_of_cars(df_hh, results_for_all_h
                                      'Ecart type avec 2 place de stationnement',
                                      'Proportion avec 3 place de stationnement ou plus',
                                      'Ecart type avec 3 place de stationnement ou plus'])
-    print(file_name_fr, 'saved in data/output/FR')
+    print(file_name_fr, 'saved in data/output/FR/domicile')
