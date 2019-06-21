@@ -302,23 +302,25 @@ def get_results_for_all_zp(df_zp):
     df_zp['parking_spaces_for_cars_at_work_0'] = \
         df_zp['parking_spaces_for_cars_at_work'].apply(lambda x: 1 if x == 3 else 0)
     # Results for everyone
-    weighted_avg_nb_parking_work_free, weigthed_std_parking_work_free = \
+    weighted_avg_nb_parking_work_free, weighted_std_parking_work_free = \
         get_weighted_average_and_std(df_zp, 'parking_spaces_for_cars_at_work_free',
                                      name_weight = 'weight_person')
-    weighted_avg_nb_parking_work_paid, weigthed_std_parking_work_paid = \
+    weighted_avg_nb_parking_work_paid, weighted_std_parking_work_paid = \
         get_weighted_average_and_std(df_zp, 'parking_spaces_for_cars_at_work_paid',
                                      name_weight = 'weight_person')
-    weighted_avg_nb_parking_work_0, weigthed_std_parking_work_0 = \
+    weighted_avg_nb_parking_work_0, weighted_std_parking_work_0 = \
         get_weighted_average_and_std(df_zp, 'parking_spaces_for_cars_at_work_0',
                                      name_weight = 'weight_person')
     # Group the results
     results_for_all_zp = pd.DataFrame({'Proportion with free parking space at work': weighted_avg_nb_parking_work_free,
-                                       'Standard deviation with free parking space at work': weigthed_std_parking_work_free,
+                                       'Standard deviation with free parking space at work':
+                                           weighted_std_parking_work_free,
                                        'Proportion with paid parking space at work': weighted_avg_nb_parking_work_paid,
-                                       'Standard deviation with paid parking space at work': weigthed_std_parking_work_paid,
+                                       'Standard deviation with paid parking space at work':
+                                           weighted_std_parking_work_paid,
                                        'Proportion without parking space at work': weighted_avg_nb_parking_work_0,
                                        'Standard deviation without parking space at work':
-                                           weighted_avg_nb_parking_work_0
+                                           weighted_std_parking_work_0
                                        }, index=['All households'])
     return results_for_all_zp
 
