@@ -38,8 +38,8 @@ def compute_availability_of_parking_space_by_agglo_size_work_loc(df_zp, results_
                          "Agglomerationen mit weniger als 50'000 Einwohner/innen":
                              "Agglomérations de moins de 50'000 habitants"}
     file_name_en = 'availability_of_parking_space_by_agglo_size_work_loc.csv'
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_agglo_groesse_arbeitstort.csv'
-    file_name_fr = 'dispo_de_place_stationnement_selon_pop_agglo_travail.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_agglo_groesse_arbeitstort.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_pop_agglo_travail.csv'
     compute_av_parking_for_one_size_variable(df_zp, results_for_all_zp, size_variable, dict_variable_labels,
                                              dict_labels_en2de, dict_labels_de2fr,
                                              file_name_en, file_name_de, file_name_fr)
@@ -73,8 +73,8 @@ def compute_availability_of_parking_space_by_agglo_size_work_loc(df_zp, results_
                              "Agglomerationen mit weniger als 50'000 Einwohner/innen":
                                  "Agglomérations de moins de 50'000 habitants"}
     file_name_en_agg = 'availability_of_parking_space_by_agglo_size_work_loc_agg.csv'
-    file_name_de_agg = 'verfuegbarkeit_von_autoparkplaetzen_nach_agglo_groesse_arbeitsort_agg.csv'
-    file_name_fr_agg = 'dispo_de_place_stationnement_selon_pop_agglo_travail_agg.csv'
+    file_name_de_agg = 'verfueg_autoparkplaetzen_nach_agglo_groesse_arbeitsort_agg.csv'
+    file_name_fr_agg = 'dispo_place_stationnement_selon_pop_agglo_travail_agg.csv'
     compute_av_parking_for_one_size_variable(df_zp, results_for_all_zp, size_variable_agg, dict_variable_labels_agg,
                                              dict_labels_en2de_agg, dict_labels_de2fr_agg,
                                              file_name_en_agg, file_name_de_agg, file_name_fr_agg)
@@ -186,7 +186,7 @@ def compute_availability_of_parking_space_by_type_work_loc(df_zp, results_for_al
                                     'Core municipalities outside agglomeration':
                                         'Kerngemeinde ausserhalb Agglomerationen'
                                     }, inplace=True)
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_arbeitsort_raumtyp.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_arbeitsort_raumtyp.csv'
     results_in_german.to_csv(Path('../data/output/tables/DE/Arbeitsort/' + file_name_de),
                              header=['Anteil mit Gratisparkplatz', 'Standardabweichung mit Gratisparkplatz',
                                      'Anteil mit Bezahlparkplatz', 'Standardabweichung mit Bezahlparkplatz',
@@ -208,7 +208,7 @@ def compute_availability_of_parking_space_by_type_work_loc(df_zp, results_for_al
                                     'Kerngemeinde ausserhalb Agglomerationen':
                                         'Communes-centre hors agglomération'
                                     }, inplace=True)
-    file_name_fr = 'dispo_de_place_stationnement_selon_typo_spatiale_travail.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_typo_spatiale_travail.csv'
     results_in_french.to_csv(Path('../data/output/tables/FR/travail/' + file_name_fr),
                              encoding='iso-8859-1',
                              header=['Proportion avec place de stationnement gratuite',
@@ -267,7 +267,7 @@ def compute_availability_of_parking_space_by_type_work_loc(df_zp, results_for_al
                                     'Area beyond urban core influence':
                                         'laendliche Gemeinde ohne staedtischen Charakter'
                                     }, inplace=True)
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_arbeitsort_raumtyp_agg.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_arbeitsort_raumtyp_agg.csv'
     results_in_german.to_csv(Path('../data/output/tables/DE/Arbeitsort/' + file_name_de),
                              header=['Anteil mit Gratisparkplatz', 'Standardabweichung mit Gratisparkplatz',
                                      'Anteil mit Bezahlparkplatz', 'Standardabweichung mit Bezahlparkplatz',
@@ -282,7 +282,7 @@ def compute_availability_of_parking_space_by_type_work_loc(df_zp, results_for_al
                                     'laendliche Gemeinde ohne staedtischen Charakter':
                                         'Espace hors influence des centres urbains'
                                     }, inplace=True)
-    file_name_fr = 'dispo_de_place_stationnement_selon_typo_spatiale_travail_agg.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_typo_spatiale_travail_agg.csv'
     results_in_french.to_csv(Path('../data/output/tables/FR/travail/' + file_name_fr),
                              encoding='iso-8859-1',
                              header=['Proportion avec place de stationnement gratuite',

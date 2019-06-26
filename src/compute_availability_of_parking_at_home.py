@@ -38,8 +38,8 @@ def compute_availability_of_parking_space_by_agglo_size(df_hh, results_for_all_h
                          "Agglomerationen mit weniger als 50'000 Einwohner/innen":
                              "Agglomérations de moins de 50'000 habitants"}
     file_name_en = 'availability_of_parking_space_by_agglo_size.csv'
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_agglo_groesse.csv'
-    file_name_fr = 'dispo_de_place_stationnement_selon_pop_agglo.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_agglo_groesse.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_pop_agglo.csv'
     compute_av_parking_for_one_size_variable(df_hh, results_for_all_hh, size_variable, dict_variable_labels,
                                              dict_labels_en2de, dict_labels_de2fr,
                                              file_name_en, file_name_de, file_name_fr)
@@ -73,8 +73,8 @@ def compute_availability_of_parking_space_by_agglo_size(df_hh, results_for_all_h
                              "Agglomerationen mit weniger als 50'000 Einwohner/innen":
                                  "Agglomérations de moins de 50'000 habitants"}
     file_name_en_agg = 'availability_of_parking_space_by_agglo_size_agg.csv'
-    file_name_de_agg = 'verfuegbarkeit_von_autoparkplaetzen_nach_agglo_groesse_agg.csv'
-    file_name_fr_agg = 'dispo_de_place_stationnement_selon_pop_agglo_agg.csv'
+    file_name_de_agg = 'verfueg_autoparkplaetzen_nach_agglo_groesse_agg.csv'
+    file_name_fr_agg = 'dispo_place_stationnement_selon_pop_agglo_agg.csv'
     compute_av_parking_for_one_size_variable(df_hh, results_for_all_hh, size_variable_agg, dict_variable_labels_agg,
                                              dict_labels_en2de_agg, dict_labels_de2fr_agg,
                                              file_name_en_agg, file_name_de_agg, file_name_fr_agg)
@@ -200,7 +200,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                     'Core municipalities outside agglomeration':
                                         'Kerngemeinde ausserhalb Agglomerationen'
                                     }, inplace=True)
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_haushalt_raumtyp.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_haushalt_raumtyp.csv'
     results_in_german.to_csv(Path('../data/output/tables/DE/zuHause/' + file_name_de),
                               header=['Anteil ohne Parkplatz', 'Standardabweichung ohne Parkplatz',
                                       'Anteil mit 1 Parkplatz', 'Standardabweichung mit 1 Parkplatz',
@@ -224,7 +224,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                     'Kerngemeinde ausserhalb Agglomerationen':
                                         'Communes-centre hors agglomération'
                                     }, inplace=True)
-    file_name_fr = 'dispo_de_place_stationnement_selon_typo_spatiale_menage.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_typo_spatiale_menage.csv'
     results_in_french.to_csv(Path('../data/output/tables/FR/domicile/' + file_name_fr),
                              encoding='iso-8859-1',
                              header=['Proportion sans place de stationnement', 'Ecart type sans place de stationnement',
@@ -290,7 +290,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                     'Area beyond urban core influence':
                                         'laendliche Gemeinde ohne staedtischen Charakter'
                                     }, inplace=True)
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_haushalt_raumtyp_agg.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_haushalt_raumtyp_agg.csv'
     results_in_german.to_csv(Path('../data/output/tables/DE/zuHause/' + file_name_de),
                              header=['Anteil ohne Parkplatz', 'Standardabweichung ohne Parkplatz',
                                      'Anteil mit 1 Parkplatz', 'Standardabweichung mit 1 Parkplatz',
@@ -307,7 +307,7 @@ def compute_availability_of_parking_space_by_type_hh(df_hh, results_for_all_hh):
                                     'laendliche Gemeinde ohne staedtischen Charakter':
                                         'Espace hors influence des centres urbains'
                                     }, inplace=True)
-    file_name_fr = 'dispo_de_place_stationnement_selon_typo_spatiale_menage_agg.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_typo_spatiale_menage_agg.csv'
     results_in_french.to_csv(Path('../data/output/tables/FR/domicile/' + file_name_fr),
                              encoding='iso-8859-1',
                              header=['Proportion sans place de stationnement', 'Ecart type sans place de stationnement',
@@ -421,7 +421,7 @@ def compute_availability_of_parking_space_by_nb_of_cars(df_hh, results_for_all_h
                                     '2 cars in the household': 'Haushalte mit 2 Autos',
                                     '3 and more cars in the household': 'Haushalte mit 3 Autos und mehr'
                                     }, inplace=True)
-    file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_nach_anzahl_autos_im_haushalt.csv'
+    file_name_de = 'verfueg_autoparkplaetzen_nach_anzahl_autos_im_haushalt.csv'
     results_in_german.to_csv(Path('../data/output/tables/DE/zuHause/' + file_name_de),
                              header=['Anteil ohne Parkplatz', 'Standardabweichung ohne Parkplatz',
                                      'Anteil mit 1 Parkplatz', 'Standardabweichung mit 1 Parkplatz',
@@ -438,7 +438,7 @@ def compute_availability_of_parking_space_by_nb_of_cars(df_hh, results_for_all_h
                                     'Haushalte mit 2 Autos': 'Ménages avec 2 voitures',
                                     'Haushalte mit 3 Autos und mehr': 'Ménages avec 3 voitures et plus'
                                     }, inplace=True)
-    file_name_fr = 'dispo_de_place_stationnement_selon_nb_voiture_dans_menage.csv'
+    file_name_fr = 'dispo_place_stationnement_selon_nb_voiture_dans_menage.csv'
     results_in_french.to_csv(Path('../data/output/tables/FR/domicile/' + file_name_fr),
                              encoding='iso-8859-1',
                              header=['Proportion sans place de stationnement', 'Ecart type sans place de stationnement',
