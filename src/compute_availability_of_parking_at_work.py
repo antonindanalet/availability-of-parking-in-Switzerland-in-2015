@@ -37,7 +37,7 @@ def compute_availability_of_parking_space_by_agglo_size_work_loc(df_zp, results_
                              "Agglomérations de 50'000 à 99'999 habitants",
                          "Agglomerationen mit weniger als 50'000 Einwohner/innen":
                              "Agglomérations de moins de 50'000 habitants"}
-    file_name_en = 'availability_of_parking_space_by_agglo_size_work_loc.csv'
+    file_name_en = 'avail_parking_space_by_agglo_size_work_loc.csv'
     file_name_de = 'verfueg_autoparkplaetzen_nach_agglo_groesse_arbeitstort.csv'
     file_name_fr = 'dispo_place_stationnement_selon_pop_agglo_travail.csv'
     compute_av_parking_for_one_size_variable(df_zp, results_for_all_zp, size_variable, dict_variable_labels,
@@ -72,7 +72,7 @@ def compute_availability_of_parking_space_by_agglo_size_work_loc(df_zp, results_
                                  "Agglomérations de 50'000 à 249'999 habitants",
                              "Agglomerationen mit weniger als 50'000 Einwohner/innen":
                                  "Agglomérations de moins de 50'000 habitants"}
-    file_name_en_agg = 'availability_of_parking_space_by_agglo_size_work_loc_agg.csv'
+    file_name_en_agg = 'avail_parking_space_by_agglo_size_work_loc_agg.csv'
     file_name_de_agg = 'verfueg_autoparkplaetzen_nach_agglo_groesse_arbeitsort_agg.csv'
     file_name_fr_agg = 'dispo_place_stationnement_selon_pop_agglo_travail_agg.csv'
     compute_av_parking_for_one_size_variable(df_zp, results_for_all_zp, size_variable_agg, dict_variable_labels_agg,
@@ -166,7 +166,7 @@ def compute_availability_of_parking_space_by_type_work_loc(df_zp, results_for_al
                                               6: 'Core municipalities outside agglomeration',
                                               # in German: 6 = Kerngemeinde ausserhalb Agglomerationen
                                               }, inplace=True)
-    file_name_en = 'availability_of_parking_space_by_work_location.csv'
+    file_name_en = 'avail_parking_space_by_work_location.csv'
     results_in_english = pd.concat([results_for_all_zp, differentiation_by_work_loc])
     results_in_english.to_csv(Path('../data/output/tables/EN/work/' + file_name_en))
     print(file_name_en, 'saved in data/output/EN/work')
@@ -254,7 +254,7 @@ def compute_availability_of_parking_space_by_type_work_loc(df_zp, results_for_al
                                                   3: 'Area beyond urban core influence',
                                                   # in German: laendliche Gemeinde ohne staedtischen Charaketer
                                                   }, inplace=True)
-    file_name = 'availability_of_parking_space_by_work_location_agg.csv'
+    file_name = 'avail_parking_space_by_work_location_agg.csv'
     results_in_english = pd.concat([results_for_all_zp, differentiation_by_work_loc_agg])
     results_in_english.to_csv(Path('../data/output/tables/EN/work/' + file_name))
     print(file_name, 'saved in data/output/EN/work')
