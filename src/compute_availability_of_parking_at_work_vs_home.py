@@ -43,7 +43,7 @@ def compute_availability_of_parking_space_at_work_by_agglo_size_home_loc(df_zp, 
                              "Degré d'urbanisation au domicile: Agglomérations de moins de 50'000 habitants"}
     file_name_en = 'availability_of_parking_space_at_work_by_agglo_size_home_loc.csv'
     file_name_de = 'verfuegbarkeit_von_autoparkplaetzen_am_arbeitsort_nach_agglo_groesse_wohnort.csv'
-    file_name_fr = 'dispo_de_place_stationnement_au_travaiL_selon_pop_agglo_domicile.csv'
+    file_name_fr = 'dispo_de_place_stationnement_au_travail_selon_pop_agglo_domicile.csv'
     compute_av_parking_for_one_size_variable(df_zp, results_for_all_zp, size_variable, dict_variable_labels,
                                              dict_labels_en2de, dict_labels_de2fr,
                                              file_name_en, file_name_de, file_name_fr,
@@ -70,7 +70,8 @@ def compute_availability_of_parking_space_at_work_by_agglo_size_home_loc(df_zp, 
                              "Typology of home location: Agglomerations with 50'000 to 249'999 inhabitants":
                                  "Urbanisierungsgrad des Wohnorts: Agglomerationen mit 50'000 bis 249'999 Einwohner/innen",
                              "Typology of home location: Agglomerations with less than 50'000 inhabitants":
-                                 "Urbanisierungsgrad des Wohnorts: Agglomerationen mit weniger als 50'000 Einwohner/innen"}
+                                 "Urbanisierungsgrad des Wohnorts: Agglomerationen mit weniger als 50'000 Einwohner/innen",
+                             'Outside of agglomerations': 'Keine Agglomerationszugehoerigkeit'}
     dict_labels_de2fr_agg = {'Alle Haushalte': 'Tous les ménages',
                              'Urbanisierungsgrad des Wohnorts: Keine Agglomerationszugehoerigkeit':
                                  "Degré d'urbanisation au domicile: Communes hors agglomérations",
@@ -79,7 +80,8 @@ def compute_availability_of_parking_space_at_work_by_agglo_size_home_loc(df_zp, 
                              "Urbanisierungsgrad des Wohnorts: Agglomerationen mit 50'000 bis 249'999 Einwohner/innen":
                                  "Degré d'urbanisation au domicile: Agglomérations de 50'000 à 249'999 habitants",
                              "Urbanisierungsgrad des Wohnorts: Agglomerationen mit weniger als 50'000 Einwohner/innen":
-                                 "Degré d'urbanisation au domicile: Agglomérations de moins de 50'000 habitants"}
+                                 "Degré d'urbanisation au domicile: Agglomérations de moins de 50'000 habitants",
+                             'Keine Agglomerationszugehoerigkeit': 'Communes hors agglomérations'}
     file_name_en_agg = 'availability_of_parking_space_at_work_by_agglo_size_home_loc_agg.csv'
     file_name_de_agg = 'verfuegbarkeit_von_autoparkplaetzen_am_arbeitsort_nach_agglo_groesse_wohnort_agg.csv'
     file_name_fr_agg = 'dispo_de_place_stationnement_au_travail_selon_pop_agglo_domicile_agg.csv'
