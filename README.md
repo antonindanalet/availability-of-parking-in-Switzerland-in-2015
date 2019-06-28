@@ -40,7 +40,8 @@ and <a href="https://github.com/antonindanalet/availability-of-parking-in-Switze
 Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the supplementary module about soft mobility and job occuation
 
 ### Résultats en français
-The results in English are available in the folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/FR">FR</a>".
+Les résultats en français sont disponibles dans le dossier
+"<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/FR">FR</a>".
 
 #### Results about parking spaces at home
 The results in English about parking spaces at home are available in the folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/EN/home">home</a>" and show the number of parking spaces:
