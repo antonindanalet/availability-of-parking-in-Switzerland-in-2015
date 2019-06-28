@@ -250,11 +250,11 @@ def compute_availability_of_parking_space_at_work_by_home_location(df_zp, result
     results_in_french = results_in_german
     results_in_french.rename(index={'alle Haushalte': 'Tous les ménages',
                                     'Urbanisierungsgrad des Wohnorts: Staedtischer Kernraum':
-                                        "Degré d'urbanisation au domicile: Espace des centres urbains",
+                                        "Degré d'urbanisation au domicile : Espace des centres urbains",
                                     'Urbanisierungsgrad des Wohnorts: Einflussgebiet staedtischer Kerne':
-                                        "Degré d'urbanisation au domicile: Espace sous influence des centres urbains",
+                                        "Degré d'urbanisation au domicile : Espace sous influence des centres urbains",
                                     'Urbanisierungsgrad des Wohnorts: laendliche Gemeinde ohne staedtischen Charakter':
-                                        "Degré d'urbanisation au domicile: Espace hors influence des centres urbains"
+                                        "Degré d'urbanisation au domicile : Espace hors influence des centres urbains"
                                     }, inplace=True)
     file_name_fr = 'dispo_place_stationnement_au_travail_selon_typo_spatiale_domicile_agg.csv'
     results_in_french.to_csv(Path('../data/output/tables/FR/travail_vs_domicile/' + file_name_fr),
@@ -286,3 +286,38 @@ def compute_no_availability_of_parking_space_by_type_home_work_loc(df_zp):
     file_name = 'no_parking_space_at_work_by_home_work_location_agg.csv'
     results_no_parking_at_work_loc_hw_agg.to_csv(Path('../data/output/tables/EN/work_vs_home/' + file_name))
     print(file_name, 'saved in data/output/EN/work_vs_home')
+
+    # results in German
+    results_in_german = results_no_parking_at_work_loc_hw_agg
+    results_in_german.rename(index={'Typology of work location: Urban core area':
+                                        'Urbanisierungsgrad des Arbeitsorts: Staedtischer Kernraum',
+                                    'Typology of work location: Area influenced by urban cores':
+                                        'Urbanisierungsgrad des Arbeitsorts: Einflussgebiet staedtischer Kerne',
+                                    'Typology of work location: Area beyond urban core influence':
+                                        'Urbanisierungsgrad des Arbeitsorts: laendliche Gemeinde ohne staedtischen Charakter'
+                                    }, inplace=True)
+    file_name_de = 'kein_autoparkplatz_am_arbeitsort_nach_wohn_und_arbeitsort_raumtyp_agg.csv'
+    results_in_german.to_csv(Path('../data/output/tables/DE/Arbeitsort_vs_zuHause/' + file_name_de),
+                             header=['Urbanisierungsgrad des Wohnorts: Staedtischer Kernraum',
+                                     'Urbanisierungsgrad des Wohnorts: Einflussgebiet staedtischer Kerne',
+                                     'Urbanisierungsgrad des Wohnorts: laendliche Gemeinde ohne staedtischen Charakter',
+                                     'Total'])
+    print(file_name_de, 'saved in data/output/DE/Arbeitsort_vs_zuHause')
+
+    # Results in French
+    results_in_french = results_in_german
+    results_in_french.rename(index={'Urbanisierungsgrad des Arbeitsorts: Staedtischer Kernraum':
+                                        "Degré d'urbanisation au lieu de traval : Espace des centres urbains",
+                                    'Urbanisierungsgrad des Arbeitsorts: Einflussgebiet staedtischer Kerne':
+                                        "Degré d'urbanisation au lieu de traval : Espace sous influence des centres urbains",
+                                    'Urbanisierungsgrad des Arbeitsorts: laendliche Gemeinde ohne staedtischen Charakter':
+                                        "Degré d'urbanisation au lieu de traval : Espace hors influence des centres urbains"
+                                    }, inplace=True)
+    file_name_fr = 'pas_de_place_stationnement_au_travail_selon_typo_spatiale_domicile_travail_agg.csv'
+    results_in_french.to_csv(Path('../data/output/tables/FR/travail_vs_domicile/' + file_name_fr),
+                             encoding='iso-8859-1',
+                             header=["Degré d'urbanisation au domicile : Espace des centres urbains",
+                                     "Degré d'urbanisation au domicile : Espace sous influence des centres urbains",
+                                     "Degré d'urbanisation au domicile : Espace hors influence des centres urbains",
+                                     'Total'])
+    print(file_name_fr, 'saved in data/output/FR/travail_vs_domicile')
