@@ -26,7 +26,7 @@ The results in English about parking spaces at work are available in the folder 
 - <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_work_location.csv">by level of urbanisation of the work place (in 7 categories)</a>
 - <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_work_location_agg.csv">by level of urbanisation of the work place (aggregated in 3 categories)</a>
 
-Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the odule about soft mobility and job occuation
+Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the supplementary module about soft mobility and job occuation
 
 #### Results about parking spaces at work by home location
 These results show the availability of parking spaces at work (and if they exist, if they are free or paid) depending on the home location (size of agglomeration and level of urbanisation of the place of living). They also show a cross table showing where people without a parking space at work live and work. All these results are in folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/EN/work_vs_home">work_vs_home</a>", specifically availability of parking spaces <b>at work</b>:
@@ -37,4 +37,4 @@ These results show the availability of parking spaces at work (and if they exist
 
 and <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/no_parking_space_at_work_by_home_work_location_agg.csv">the proportion of people living and working in places with different levels of urbanisation (aggregated in 3 categories) among people without parking space at work</a>.
 
-Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the odule about soft mobility and job occuation
+Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the supplementary module about soft mobility and job occuation
