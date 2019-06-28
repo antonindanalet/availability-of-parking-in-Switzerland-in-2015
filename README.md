@@ -43,35 +43,57 @@ Statistical basis for these results: 8855 active persons, 18 years old or older,
 Les résultats en français sont disponibles dans le dossier
 "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/FR">FR</a>".
 
-#### Results about parking spaces at home
-The results in English about parking spaces at home are available in the folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/EN/home">home</a>" and show the number of parking spaces:
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/home/avail_parking_space_by_agglo_size.csv">by population of the agglomeration of the place of living (in 5 categories of number of inhabitants + outside of agglomerations)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/home/avail_parking_space_by_agglo_size_agg.csv">by population of the agglomeration of the place of living (aggregated in 3 categories of number of inhabitants + outside of agglomerations)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/home/avail_parking_space_by_household_location.csv">by level of urbanisation of the place of living (in 7 categories)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/home/avail_parking_space_by_household_location_agg.csv">by level of urbanisation of the place of living (aggregated in 3 categories)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/home/avail_parking_space_by_nb_of_cars.csv">by number of cars in the household</a> (these results are similar to the figure G 2.3.1.1 in the main report of the MTMC 2015, page 15, see report <a href="https://www.are.admin.ch/dam/are/de/dokumente/verkehr/dokumente/mikrozensus/verkehrsverhalten-der-bevolkerung-ergebnisse-des-mikrozensus-mobilitat-und-verkehr-2015.pdf.download.pdf/Mikrozensus_Verkehrsverhalten%20der%20Bev%C3%B6lkerung%202015_de.pdf">in German</a> and <a href="https://www.are.admin.ch/dam/are/fr/dokumente/verkehr/dokumente/mikrozensus/verkehrsverhalten-der-bevolkerung-ergebnisse-des-mikrozensus-mobilitat-und-verkehr-2015.pdf.download.pdf/Mikrozensus_Verkehrsverhalten%20der%20Bev%C3%B6lkerung%202015_fr.pdf">in French</a>)
+#### Disponibilité de places de stationnement au domicile
+Les résultats en français concernant la disponibilité de places de stationnement au domicile sont disponibles dans le
+ dossier
+ "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/FR/domicile">domicile</a>"
+ et présentent le nombre de places de parking ou de garage:
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/domicile/dispo_place_stationnement_selon_pop_agglo.csv">
+selon la population de l'agglomération du lieu de domicile (en 5 catégories de nombre d'habitants + 1 catégorie "hors agglomérations")</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/domicile/dispo_place_stationnement_selon_pop_agglo_agg.csv">
+selon la population de l'agglomération du lieu de domicile (agrégé en 3 catégories de nombre d'habitants + 1 catégorie "hors agglomération")</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/domicile/dispo_place_stationnement_selon_typo_spatiale_menage.csv">
+selon le degré d'urbanisation du lieu de domicile (en 7 catégories)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/domicile/dispo_place_stationnement_selon_typo_spatiale_menage_agg.csv">
+selon le degré d'urbanisation du lieu de domicile (agrégé en 3 catégories)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/domicile/dispo_place_stationnement_selon_nb_voiture_dans_menage.csv">
+selon le nombre de voitures dans le ménage</a> (ces résultats sont identiques à ceux présentés dans le graphique
+G 2.3.1.1 du
+<a href="https://www.are.admin.ch/dam/are/fr/dokumente/verkehr/dokumente/mikrozensus/verkehrsverhalten-der-bevolkerung-ergebnisse-des-mikrozensus-mobilitat-und-verkehr-2015.pdf.download.pdf/Mikrozensus_Verkehrsverhalten%20der%20Bev%C3%B6lkerung%202015_fr.pdf">
+rapport principal du MRMT 2015</a>, page 15)
 
-Statistical basis for these results: 56'874 households with valid information
+Base pour le calcul de ces résultats : 56'874 ménages avec indication valable
 
-#### Results about parking spaces at work
-The results in English about parking spaces at work are available in the folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/EN/work">work</a>" and show if there are parking spaces, and if yes, if parking spaces are free or paid:
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_agglo_size_work_loc.csv">by population of the agglomeration where the work place is located (in 5 categories of number of inhabitants + outside of agglomerations)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_agglo_size_work_loc_agg.csv">by population of the agglomeration where the work place is located (aggregated in 3 categories of number of inhabitants + outside of agglomerations)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_work_location.csv">by level of urbanisation of the work place (in 7 categories)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_work_location_agg.csv">by level of urbanisation of the work place (aggregated in 3 categories)</a>
+#### Disponibilité de place de stationnement au lieu de travail
+Les résultats en français concernant la disponibilité de place de stationnement au lieu de travail sont disponibles
+dans le dossier
+"<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/FR/travail">travail</a>"
+et présentent si une place de stationnement est disponible, et si oui, si elle est gratuite ou payante:
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/travail/dispo_place_stationnement_selon_pop_agglo_travail.csv">
+selon la population de l'agglomération du lieu de travail (en 5 catégories de nombre d'habitants + 1 catégorie "hors agglomérations")</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/travail/dispo_place_stationnement_selon_pop_agglo_travail_agg.csv">
+selon la population de l'agglomération du lieu de travail (agrégé en 3 catégories de nombre d'habitants + 1 catégorie "hors agglomération")</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/travail/dispo_place_stationnement_selon_typo_spatiale_travail.csv">
+selon le degré d'urbanisation du lieu de travail (en 7 catégories)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/FR/travail/dispo_place_stationnement_selon_typo_spatiale_travail_agg.csv">
+selon le degré d'urbanisation du lieu de travail (agrégé en 3 catégories)</a>
 
-Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the supplementary module about soft mobility and job occuation
+Base pour le calcul de ces résultats : 8855 personnes actives occupées de 18 ans ou plus interrogées dans le module supplémentaire "Mobilité douce et profession"
 
-#### Results about parking spaces at work by home location
+#### Disponibilité de place de stationnement au lieu de travail selon le lieu de domicile
 These results show the availability of parking spaces at work (and if they exist, if they are free or paid) depending on the home location (size of agglomeration and level of urbanisation of the place of living). They also show a cross table showing where people without a parking space at work live and work. All these results are in folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/EN/work_vs_home">work_vs_home</a>", specifically availability of parking spaces <b>at work</b>:
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_agglo_size_home_loc.csv">by population of the agglomeration <b>of the place of living</b> (in 5 categories of number of inhabitants + outside of agglomerations)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_agglo_size_home_loc_agg.csv">by population of the agglomeration <b>of the place of living</b> (aggregated in 3 categories of number of inhabitants + outside of agglomerations)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_home_location.csv">by level of urbanisation <b>of the place of living</b> (in 7 categories)</a>
-- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_home_location_agg.csv">by level of urbanisation <b>of the place of living</b> (aggregated in 3 categories)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_agglo_size_home_loc.csv">
+by population of the agglomeration <b>of the place of living</b> (in 5 categories of number of inhabitants + outside of agglomerations)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_agglo_size_home_loc_agg.csv">
+by population of the agglomeration <b>of the place of living</b> (aggregated in 3 categories of number of inhabitants + outside of agglomerations)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_home_location.csv">
+by level of urbanisation <b>of the place of living</b> (in 7 categories)</a>
+- <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/avail_parking_space_at_work_by_home_location_agg.csv">
+by level of urbanisation <b>of the place of living</b> (aggregated in 3 categories)</a>
 
 and <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/no_parking_space_at_work_by_home_work_location_agg.csv">the proportion of people living and working in places with different levels of urbanisation (aggregated in 3 categories) among people without parking space at work</a>.
 
-Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the supplementary module about soft mobility and job occuation
+Base pour le calcul de ces résultats : 8855 personnes actives occupées de 18 ans ou plus interrogées dans le module supplémentaire "Mobilité douce et profession"
 
 
 ## Getting Started
