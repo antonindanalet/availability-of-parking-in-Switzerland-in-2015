@@ -81,6 +81,8 @@ et <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzer
 
 Base pour le calcul de ces résultats : 8855 personnes actives occupées de 18 ans ou plus interrogées dans le module supplémentaire "Mobilité douce et profession"
 
+### Ergebnisse auf Deutsch
+Die Ergebnisse auf Deutsch finden sich im Ordner "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/DE">DE</a>".
 
 ## Getting Started
 
