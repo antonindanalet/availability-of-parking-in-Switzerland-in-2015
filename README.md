@@ -25,4 +25,5 @@ The results in English about parking spaces at work are available in the folder 
 - <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work/avail_parking_space_by_work_location_agg.csv">by level of urbanisation of the work place (aggregated in 3 categories)</a>
 
 #### Results about parking spaces at work by home location
-These results show the availability of parking spaces at work (and if they exist, if they are free or paid) depending on the home location (size of agglomeration and level of urbanisation of the place of living).
+These results show the availability of parking spaces at work (and if they exist, if they are free or paid) depending on the home location (size of agglomeration and level of urbanisation of the place of living). They also show a cross table showing where people without a parking space at work live and work. All these results are in folder "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/output/tables/EN/work_vs_home">work_vs_home</a>", specifically:
+- 
