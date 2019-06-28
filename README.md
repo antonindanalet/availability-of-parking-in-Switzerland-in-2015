@@ -38,3 +38,23 @@ These results show the availability of parking spaces at work (and if they exist
 and <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/data/output/tables/EN/work_vs_home/no_parking_space_at_work_by_home_work_location_agg.csv">the proportion of people living and working in places with different levels of urbanisation (aggregated in 3 categories) among people without parking space at work</a>.
 
 Statistical basis for these results: 8855 active persons, 18 years old or older, who answered the supplementary module about soft mobility and job occuation
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for reproducing the result and understanding how it has been generated.
+
+### Prerequisites
+
+To run the code itself, you need python 3, pandas and numpy.
+
+For it to produce the results, you also need the raw data of the Transport and Mobility Microcensus 2015, not included on GitHub. These data are individual data and therefore not open. You can however get them by asking the Swiss Federal Statistical Office (FSO), after signing a data protection contract. Please ask mobilita2015@bfs.admin.ch, phone number 058 463 64 68, or fill in the form to order the data, available <a href="https://www.are.admin.ch/are/de/home/verkehr-und-infrastruktur/grundlagen-und-daten/mzmv/datenzugang.html">in German</a>, <a href="https://www.are.admin.ch/are/fr/home/transports-et-infrastructures/bases-et-donnees/mrmt/accesauxdonnees.html">French</a> and <a href="https://www.are.admin.ch/are/it/home/trasporti-e-infrastrutture/basi-e-dati/mcmt/accessoaidati.html">Italian</a>. The cost of the data is available in the document "<a href="https://www.are.admin.ch/are/de/home/medien-und-publikationen/publikationen/grundlagen/mikrozensus-mobilitat-und-verkehr-2015-mogliche-zusatzauswertung.html">Mikrozensus Mobilität und Verkehr 2015: Mögliche Zusatzauswertungen</a>"/"<a href="https://www.are.admin.ch/are/fr/home/media-et-publications/publications/bases/mikrozensus-mobilitat-und-verkehr-2015-mogliche-zusatzauswertung.html">Microrecensement mobilité et transports 2015: Analyses supplémentaires possibles</a>".
+
+### Run the code
+
+Please copy the files <em>houshalte.csv</em> and <em>zielpersonen.csv</em> from 2015 that you receive from FSO in the folders "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/input">data/input</a>". Then run <em><a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/src/run_availability_of_parking.py">run_availability_of_parking.py</a></em>. 
+
+DO NOT commit or share in any way these two CSV-files! These are personal data.
+
+## Contact
+
+Please don't hesitate to contact me if you have questions or comments about this code: antonin.danalet@are.admin.ch
