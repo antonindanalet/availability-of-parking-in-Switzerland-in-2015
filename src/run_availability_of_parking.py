@@ -29,7 +29,7 @@ def run_availability_of_parking():
                                    'W_staedt_char_2012']], on='HHNR', how='left')
     print('Basis:', len(df_zp.index),
           'active persons 18 years old or older who answer the module about soft mobility and job occupation')
-    compute_no_availability_of_parking_space_by_type_home_work_loc(df_zp)
+    compute_availability_of_parking_space_by_type_home_work_loc(df_zp)
     compute_availability_of_parking_space_at_work_by_home_location(df_zp, results_for_all_zp)
     compute_availability_of_parking_space_at_work_by_agglo_size_home_loc(df_zp, results_for_all_zp)
 

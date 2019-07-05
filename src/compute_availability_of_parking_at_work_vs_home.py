@@ -268,56 +268,128 @@ def compute_availability_of_parking_space_at_work_by_home_location(df_zp, result
     print(file_name_fr, 'saved in data/output/FR/travail_vs_domicile')
 
 
-def compute_no_availability_of_parking_space_by_type_home_work_loc(df_zp):
+def compute_availability_of_parking_space_by_type_home_work_loc(df_zp):
+    # Create the weighted variables of interest (no parking spaces, paid parking spaces, free parking spaces)
     df_zp['parking_spaces_for_cars_at_work_0_weighted'] = df_zp['parking_spaces_for_cars_at_work_0'] * \
-                                                          df_zp['weight_person']
+                                                          df_zp['weight_person']  # new wighted variable for no parking
+    df_zp['parking_spaces_for_cars_at_work_free_weighted'] = df_zp['parking_spaces_for_cars_at_work_free'] * \
+                                                          df_zp['weight_person']  # new weighted var. for free parking
+    df_zp['parking_spaces_for_cars_at_work_paid_weighted'] = df_zp['parking_spaces_for_cars_at_work_paid'] * \
+                                                          df_zp['weight_person']  # new weighted var. for paid parking
+    # Compute the results (a cross table) for each variable (no parking spaces, paid & free parking spaces)
+    # The marginal conditions are the urban typology of the home location and of the work location (3 levels each)
+    # The first parameter of the function 'crosstab' is the index of the cross table and the second is the columns
+    # In our case, the index of the cross table is A_staedt_char_2012_agg --> Work ('Arbeit' in German)
+    #          and the columns of the cross table are W_staedt_char_2012_agg --> Home ('Wohnhort' in German)
     results_no_parking_at_work_loc_hw_agg = (pd.crosstab(df_zp.A_staedt_char_2012_agg, df_zp.W_staedt_char_2012_agg,
                                                          values=df_zp.parking_spaces_for_cars_at_work_0_weighted,
                                                          aggfunc=sum, normalize=True, margins=True,
-                                                         margins_name="Total"))
-    results_no_parking_at_work_loc_hw_agg.columns = ['Typology of home location: Urban core area',
-                                                     'Typology of home location: Area influenced by urban cores',
-                                                     'Typology of home location: Area beyond urban core influence',
-                                                     'Total']
-    results_no_parking_at_work_loc_hw_agg.index = ['Typology of work location: Urban core area',
-                                                   'Typology of work location: Area influenced by urban cores',
-                                                   'Typology of work location: Area beyond urban core influence',
-                                                   'Total']
-    file_name = 'no_parking_space_at_work_by_home_work_location_agg.csv'
-    results_no_parking_at_work_loc_hw_agg.to_csv(Path('../data/output/tables/EN/work_vs_home/' + file_name))
-    print(file_name, 'saved in data/output/EN/work_vs_home')
+                                                         margins_name="Total"))  # results for variable no parking
+    results_free_parking_at_work_loc_hw_agg = (pd.crosstab(df_zp.A_staedt_char_2012_agg, df_zp.W_staedt_char_2012_agg,
+                                                           values=df_zp.parking_spaces_for_cars_at_work_free_weighted,
+                                                           aggfunc=sum, normalize=True, margins=True,
+                                                           margins_name="Total"))  # results for var. free parking
+    results_paid_parking_at_work_loc_hw_agg = (pd.crosstab(df_zp.A_staedt_char_2012_agg, df_zp.W_staedt_char_2012_agg,
+                                                           values=df_zp.parking_spaces_for_cars_at_work_paid_weighted,
+                                                           aggfunc=sum, normalize=True, margins=True,
+                                                           margins_name="Total"))  # results for var. paid parking
+    # Define the name of the columns / index for each variable (no parking spaces, paid & free parking spaces)
+    # The names are the same for all variables
+    list_names_columns_in_english = ['Typology of home location: Urban core area',
+                                     'Typology of home location: Area influenced by urban cores',
+                                     'Typology of home location: Area beyond urban core influence',
+                                     'Total']
+    list_names_index_in_english = ['Typology of work location: Urban core area',
+                                   'Typology of work location: Area influenced by urban cores',
+                                   'Typology of work location: Area beyond urban core influence',
+                                   'Total']
+    results_no_parking_at_work_loc_hw_agg.columns = list_names_columns_in_english  # changing column and index name...
+    results_no_parking_at_work_loc_hw_agg.index = list_names_index_in_english   # for variable no parking
+    results_free_parking_at_work_loc_hw_agg.columns = list_names_columns_in_english  # for variable free parking
+    results_free_parking_at_work_loc_hw_agg.index = list_names_index_in_english  # for variable free parking
+    results_paid_parking_at_work_loc_hw_agg.columns = list_names_columns_in_english  # for variable paid parking
+    results_paid_parking_at_work_loc_hw_agg.index = list_names_index_in_english  # for variable paid parking
+    # Define the name of the file for each category (no parking spaces, paid & free parking spaces)
+    file_name_no_parking_at_work_loc_hw_agg = 'no_parking_space_at_work_by_home_work_location_agg.csv'
+    file_name_free_parking_at_work_loc_hw_agg = 'free_parking_space_at_work_by_home_work_location_agg.csv'
+    file_name_paid_parking_at_work_loc_hw_agg = 'paid_parking_space_at_work_by_home_work_location_agg.csv'
+    # Generate CSV files for each category (no parking spaces, paid & free parking spaces)
+    folder_results_english = Path('../data/output/tables/EN/work_vs_home/')
+    results_no_parking_at_work_loc_hw_agg.to_csv(folder_results_english / file_name_no_parking_at_work_loc_hw_agg)
+    results_free_parking_at_work_loc_hw_agg.to_csv(folder_results_english / file_name_free_parking_at_work_loc_hw_agg)
+    results_paid_parking_at_work_loc_hw_agg.to_csv(folder_results_english / file_name_paid_parking_at_work_loc_hw_agg)
+    print(file_name_no_parking_at_work_loc_hw_agg + ',',
+          file_name_free_parking_at_work_loc_hw_agg, 'and',
+          file_name_paid_parking_at_work_loc_hw_agg, 'saved in', folder_results_english)
 
-    # results in German
-    results_in_german = results_no_parking_at_work_loc_hw_agg
-    results_in_german.rename(index={'Typology of work location: Urban core area':
-                                        'Urbanisierungsgrad des Arbeitsorts: Staedtischer Kernraum',
-                                    'Typology of work location: Area influenced by urban cores':
-                                        'Urbanisierungsgrad des Arbeitsorts: Einflussgebiet staedtischer Kerne',
-                                    'Typology of work location: Area beyond urban core influence':
-                                        'Urbanisierungsgrad des Arbeitsorts: laendliche Gemeinde ohne staedtischen Charakter'
-                                    }, inplace=True)
-    file_name_de = 'kein_autoparkplatz_am_arbeitsort_nach_wohn_und_arbeitsort_raumtyp_agg.csv'
-    results_in_german.to_csv(Path('../data/output/tables/DE/Arbeitsort_vs_zuHause/' + file_name_de),
-                             header=['Urbanisierungsgrad des Wohnorts: Staedtischer Kernraum',
-                                     'Urbanisierungsgrad des Wohnorts: Einflussgebiet staedtischer Kerne',
-                                     'Urbanisierungsgrad des Wohnorts: laendliche Gemeinde ohne staedtischen Charakter',
-                                     'Total'])
-    print(file_name_de, 'saved in data/output/DE/Arbeitsort_vs_zuHause')
+    ''' Save the results in German '''
+    # Dictionary with the correspondence in German of the urban typology of the work location in English
+    # These index are the same for all three variables
+    dict_english_german = {'Typology of work location: Urban core area':
+                               'Urbanisierungsgrad des Arbeitsorts: Staedtischer Kernraum',
+                           'Typology of work location: Area influenced by urban cores':
+                               'Urbanisierungsgrad des Arbeitsorts: Einflussgebiet staedtischer Kerne',
+                           'Typology of work location: Area beyond urban core influence':
+                               'Urbanisierungsgrad des Arbeitsorts: laendliche Gemeinde ohne staedtischen Charakter'}
+    # Change the index for the results for each variable (no parking spaces, paid & free parking spaces)
+    results_no_parking_at_work_loc_hw_agg.rename(index=dict_english_german, inplace=True)  # for variable no parking
+    results_free_parking_at_work_loc_hw_agg.rename(index=dict_english_german, inplace=True)  # for variable free parking
+    results_paid_parking_at_work_loc_hw_agg.rename(index=dict_english_german, inplace=True)  # for variable paid parking
+    # Define the German name of the CSV files (no parking spaces, paid & free parking spaces)
+    file_name_no_parking_at_work_loc_hw_de = 'kein_autoparkplatz_am_arbeitsort_nach_wohn_und_arbeitsort_raumtyp_agg.csv'
+    file_name_free_parking_at_work_loc_hw_de = 'gratisparkplatz_am_arbeitsort_nach_wohn_und_arbeitsort_raumtyp_agg.csv'
+    file_name_paid_parking_at_work_loc_hw_de = 'bezahlparkplatz_am_arbeitsort_nach_wohn_und_arbeitsort_raumtyp_agg.csv'
+    # Save the results in German in CSV files
+    folder_results_german = Path('../data/output/tables/DE/Arbeitsort_vs_zuHause/')  # same for all variables
+    header_in_german = ['Urbanisierungsgrad des Wohnorts: Staedtischer Kernraum',
+                        'Urbanisierungsgrad des Wohnorts: Einflussgebiet staedtischer Kerne',
+                        'Urbanisierungsgrad des Wohnorts: laendliche Gemeinde ohne staedtischen Charakter',
+                        'Total']  # same for all variables
+    results_no_parking_at_work_loc_hw_agg.to_csv(folder_results_german / file_name_no_parking_at_work_loc_hw_de,
+                                                 header=header_in_german)  # results for variable no parking
+    results_free_parking_at_work_loc_hw_agg.to_csv(folder_results_german / file_name_free_parking_at_work_loc_hw_de,
+                                                 header=header_in_german)  # results for variable free parking
+    results_paid_parking_at_work_loc_hw_agg.to_csv(folder_results_german / file_name_paid_parking_at_work_loc_hw_de,
+                                                 header=header_in_german)  # results for variable paid parking
+    print(file_name_no_parking_at_work_loc_hw_de + ',',
+          file_name_free_parking_at_work_loc_hw_de, 'and',
+          file_name_paid_parking_at_work_loc_hw_de, 'saved in', folder_results_german)
 
-    # Results in French
-    results_in_french = results_in_german
-    results_in_french.rename(index={'Urbanisierungsgrad des Arbeitsorts: Staedtischer Kernraum':
-                                        "Degré d'urbanisation au lieu de traval : Espace des centres urbains",
-                                    'Urbanisierungsgrad des Arbeitsorts: Einflussgebiet staedtischer Kerne':
-                                        "Degré d'urbanisation au lieu de traval : Espace sous influence des centres urbains",
-                                    'Urbanisierungsgrad des Arbeitsorts: laendliche Gemeinde ohne staedtischen Charakter':
-                                        "Degré d'urbanisation au lieu de traval : Espace hors influence des centres urbains"
-                                    }, inplace=True)
-    file_name_fr = 'pas_de_place_stationnement_au_travail_selon_typo_spatiale_domicile_travail_agg.csv'
-    results_in_french.to_csv(Path('../data/output/tables/FR/travail_vs_domicile/' + file_name_fr),
-                             encoding='iso-8859-1',
-                             header=["Degré d'urbanisation au domicile : Espace des centres urbains",
-                                     "Degré d'urbanisation au domicile : Espace sous influence des centres urbains",
-                                     "Degré d'urbanisation au domicile : Espace hors influence des centres urbains",
-                                     'Total'])
-    print(file_name_fr, 'saved in data/output/FR/travail_vs_domicile')
+    ''' Save the results in French '''
+    # Dictionary with the correspondence in French of the urban typology of the work location in German
+    # These index are the same for all three variables
+    dict_german_french = {'Urbanisierungsgrad des Arbeitsorts: Staedtischer Kernraum':
+                              "Degré d'urbanisation au lieu de traval : Espace des centres urbains",
+                          'Urbanisierungsgrad des Arbeitsorts: Einflussgebiet staedtischer Kerne':
+                              "Degré d'urbanisation au lieu de traval : Espace sous influence des centres urbains",
+                          'Urbanisierungsgrad des Arbeitsorts: laendliche Gemeinde ohne staedtischen Charakter':
+                              "Degré d'urbanisation au lieu de traval : Espace hors influence des centres urbains"}
+    # Change the index for the results for each variable (no parking spaces, paid & free parking spaces)
+    results_no_parking_at_work_loc_hw_agg.rename(index=dict_german_french, inplace=True)  # for variable no parking
+    results_free_parking_at_work_loc_hw_agg.rename(index=dict_german_french, inplace=True)  # for variable free parking
+    results_paid_parking_at_work_loc_hw_agg.rename(index=dict_german_french, inplace=True)  # for variable paid parking
+    # Define the French name of the CSV files (no parking spaces, paid & free parking spaces)
+    file_name_no_parking_at_work_loc_hw_fr = \
+        'pas_de_place_stationnement_au_travail_selon_typo_spatiale_domicile_travail_agg.csv'
+    file_name_free_parking_at_work_loc_hw_fr = \
+        'place_stationnement_gratuite_au_travail_selon_typo_spatiale_domicile_travail_agg.csv'
+    file_name_paid_parking_at_work_loc_hw_fr = \
+        'place_stationnement_payante_au_travail_selon_typo_spatiale_domicile_travail_agg.csv'
+    # Save the results in French in CSV files
+    folder_results_french = Path('../data/output/tables/FR/travail_vs_domicile/')  # same for all variables
+    header_in_french = ["Degré d'urbanisation au domicile : Espace des centres urbains",
+                        "Degré d'urbanisation au domicile : Espace sous influence des centres urbains",
+                        "Degré d'urbanisation au domicile : Espace hors influence des centres urbains",
+                        'Total']  # same for all variables
+    results_no_parking_at_work_loc_hw_agg.to_csv(folder_results_french / file_name_no_parking_at_work_loc_hw_fr,
+                                                 encoding='iso-8859-1',
+                                                 header=header_in_french)  # results for variable no parking
+    results_free_parking_at_work_loc_hw_agg.to_csv(folder_results_french / file_name_free_parking_at_work_loc_hw_fr,
+                                                   encoding='iso-8859-1',
+                                                   header=header_in_french)  # results for variable free parking
+    results_paid_parking_at_work_loc_hw_agg.to_csv(folder_results_french / file_name_paid_parking_at_work_loc_hw_fr,
+                                                   encoding='iso-8859-1',
+                                                   header=header_in_french)  # results for variable paid parking
+    print(file_name_no_parking_at_work_loc_hw_fr + ',',
+          file_name_free_parking_at_work_loc_hw_fr, 'and',
+          file_name_paid_parking_at_work_loc_hw_fr, 'saved in', folder_results_french)
