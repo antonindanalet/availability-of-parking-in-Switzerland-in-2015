@@ -105,7 +105,3 @@ For it to produce the results, you also need the raw data of the Transport and M
 Please copy the files <em>houshalte.csv</em> and <em>zielpersonen.csv</em> from 2015 that you receive from the Swiss Federal Statistical Office (FSO) in the folders "<a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/tree/master/data/input">data/input</a>". Then run <a href="https://github.com/antonindanalet/availability-of-parking-in-Switzerland-in-2015/blob/master/src/run_availability_of_parking.py">run_availability_of_parking.py</a>. 
 
 DO NOT commit or share in any way these two CSV-files! These are personal data.
-
-## Contact
-
-Please don't hesitate to contact me if you have questions or comments about this code: antonin.danalet@are.admin.ch
